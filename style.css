@@ -1,0 +1,647 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: #081b29;
+    --main-color: rgb(241, 60, 90);
+    --text-color: #333;
+    --second-text-color: #555;
+    --white-color: #fff;
+    --cover-color: linear-gradient(45deg, rgb(241, 60, 90), rgb(241, 60, 90));
+    --pages-color: linear-gradient(90deg, #fff, #ddd);
+    --border: .125rem solid rgb(241, 60, 90);
+    --box-shadow: 0 0 .6rem rgba(0, 0, 0, .2);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+  animation: backgroundAnimation 30s linear infinite; /* Animated background */
+}
+
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(135deg, #f06, #4a00e0); }
+    50% { background: linear-gradient(135deg, #4a00e0, #f06); }
+    100% { background: linear-gradient(135deg, #f06, #4a00e0); }
+  }
+  
+footer {
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    margin-right: 150rem;
+    padding: 5px;
+    position: fixed;
+    width: 66%;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+    position: relative;
+    width: 66rem;
+    height: 45rem;
+    padding: 2rem;
+    perspective: 250rem;
+    animation: show-animate 2s forwards;
+}
+
+@keyframes show-animate {
+    0%,
+    30% {
+        opacity: 0;
+        transform: rotate(-20deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+.facebook-button {
+    background-color: #3b5998;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--cover-color);
+    box-shadow: var(--box-shadow);
+    border-top-left-radius: .6rem;
+    border-bottom-left-radius: .6rem;
+    transform-origin: right; 
+}
+
+.cover.cover-left {
+    z-index: -1;
+
+}
+
+.cover.cover-right {
+    z-index: 100;
+    transition: transform 1s cubic-bezier(.645, .045, .355, 1);
+}
+
+.cover.cover-right.turn {
+    transform: rotateY(180deg);
+
+}
+
+.book{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    perspective: 250rem;
+}
+
+.book .book-page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: var(--pages-color);
+    box-shadow: 0 0 .6rem rgba(0, 0, 0, .1);
+    display: flex;
+    padding: 2rem;
+
+}
+
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.profile-page img {
+    max-width: 189px;
+    border-radius: 50%;
+    border: .25rem solid var(--main-color);
+    margin-bottom: .8rem;
+}
+
+.profile-page h1 {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.profile-page h3 {
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+
+.profile-page .social-media {
+    margin: .6rem 0 .8rem;
+
+}
+
+.profile-page .social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    color: rgb(241, 60, 90);
+    border-radius: 50%;
+    font-size: 1.3rem;
+    margin: 0 .2rem;
+    transition: .5s;
+    border: var(--border)
+
+}
+
+.profile-page .social-media a:hover {
+    color: var(--white-color);
+    background: var(--main-color)
+}
+
+.profile-page p{
+    text-align: justify;
+}
+
+.profile-page .btn-box {
+    margin-top: 1.2rem;
+
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 9.5rem;
+    height: 3rem;
+    background: var(--main-color);
+    border: var(--border);
+    border-radius: .3rem;
+    font-size: 1rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin: 0 1rem;
+    transition: .5s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--main-color);
+
+}
+
+.btn-box .btn:nth-child(2) {
+    background: transparent;
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2):hover {
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+.book-page.page-right {
+    position: absolute;
+    right: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(.645, .045, .355, 1);
+}
+
+.book-page.page-left {
+    box-shadow: -.6rem .6rem rgba(0, 0, 0, .1);
+}
+
+.book-page.page-right.turn {
+    transform: rotateY(-180deg);
+}
+
+.book-page .page-front,
+.book-page .page-back {
+    position:  absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: var(--pages-color);
+    padding: 1.5rem 2rem; 
+
+}
+
+.book-page .page-front {
+    transform: rotateY(0deg) translateX(1px);
+}
+
+.book-page .page-back {
+    transform: rotateY(180deg) translateZ(1px);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.achievements-box {
+    border-left: var(--border);
+}
+
+.achievements-box .achievementscontent{
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0rem;
+    font-size: 98%;
+}
+
+.achievements-box .achievementscontent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -0.65rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: var(--main-color);
+    border-radius: 30%;
+}
+
+.achievementscontent .bullet {
+    color: var(--main-color)
+}
+.achievementscontent .year {
+    color: var(--main-color)
+}
+
+.achievementscontent .year i {
+    margin-right: .4rem;
+}
+
+.hobbies-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.8rem;
+    padding: 0.8rem;
+}
+
+.hobbies-content {
+    display: flex;
+    align-items: center;
+    border: var(--border);
+    border-radius: .4rem;
+    padding: 0.8rem;
+    background: var(--white-color);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    flex-direction: column;
+}
+
+.hobby-img {
+    width: 50px; /* Further reduced image size */
+    height: 50px; /* Further reduced image size */
+    border-radius: 30%;
+    border: .2rem solid var(--main-color);
+    margin-bottom: 0.5rem;
+}
+
+.hobby-img:hover{
+    transform: scale(2.1);
+}
+
+.hobby-info h3 {
+    margin: 0.4rem 0;
+    font-size: 1rem; /* Reduced font size */
+    color: var(--main-color);
+}
+
+.hobby-info p {
+    font-size: 0.8rem; /* Reduced font size */
+    color: var(--text-color);
+}
+
+.number-page {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.nextprev-btn {
+    position: absolute;
+    bottom: .9rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--second-text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+
+.nextprev-btn:hover {
+    color: var(--main-color);
+}
+
+.nextprev-btn.back {
+    left: 1.5rem;
+}
+
+.funfact-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.funfact-box .funfact-content {
+    flex: 1 1 10rem;
+    border: var(--border);
+    border-radius: .5rem;
+    padding: .10rem .5rem 1.1rem;
+    text-align: center;
+    transition: .3s ease;
+    margin-top: 2.5rem;
+}
+
+.funfact-box .funfact-content:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.funfact-content i{
+    font-size: 2.5rem;
+    color: var(--main-color);
+}
+
+.funfact-content h3 {
+    font-size: 1.1rem;
+}
+
+.funfact-content .btn {
+    width: 8rem;
+    height: 2.5rem;
+}
+
+.qualities-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+/* Each qualities item */
+.qualities-content {
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.01rem;
+    flex-direction: column;
+    font-size: 0.75rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effects */
+.qualities-content:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6x 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Title inside each qualities box */
+.qualities-content h3 {
+    font-size: 0.9rem;
+    color: rgb(241, 60, 90); 
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Description text inside each qualities box */
+.qualities-content p {
+    font-size: 0.7rem;
+    color: #555;
+    margin: 0;
+}
+
+.scrapbook {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px; /* Adjusted to fit the smaller images */
+    margin: 20px;
+    gap: 10px;
+    padding: 10px;
+    background: #f9f6f1; /* Light background to simulate scrapbook paper */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.scrapbook p {
+    padding-left: 35%;
+    font-size: small;
+}
+
+.scrapbook-item {
+    width: calc(33.33% - 10px); /* 3 columns */
+    height: 150px; /* Fixed height for uniformity */
+    overflow: hidden;
+    position: relative;
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer; /* Indicate that it's clickable */
+    transition: transform 0.3s ease-in-out;
+}
+.scrapbook-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+.scrapbook-text {
+    display: none; /* Hidden by default */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 1; /* Ensure text is above the image */
+    transition: opacity 0.3s ease-in-out;
+}
+.scrapbook-item.active .scrapbook-text {
+    display: block; /* Show when active */
+    opacity: 1;
+}
+.scrapbook-item.active img {
+    transform: scale(1.2); /* Zoom in effect when active */
+}
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    z-index: 2; /* Ensure button is above the text */
+}
+
+/* Modal styling */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal-content, .modal img {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.class-box {
+    text-align: center;
+}
+
+.class-box .field {
+    width: 100%;
+    background: transparent;
+    border: var(--border);
+    border-radius: .3rem;
+    padding: 3rem;
+    position: relative;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    margin-top: 3.5rem;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.class-box .field::placeholder {
+    color: var(--text-color);
+}
+
+.class-box textarea{
+    resize: none;
+    height: 15rem;
+}
+
+.class-box .btn {
+    cursor: pointer;
+}
+
+
+.back-profile {
+    position: absolute;
+    bottom: 1.2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: var(--border);
+    border-radius: .3rem;
+    font-size: 1.1rem;
+    color: var(--main-color);
+    display: inline-flex;
+    transition: .5s;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-profile:hover{
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+.back-profile p {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(.5);
+    font-size: 1rem;
+    color: var(--main-color);
+    opacity: 0;
+    transition: .5s;
+}
+
+.back-profile:hover p {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    top: -1.8rem;
+}
