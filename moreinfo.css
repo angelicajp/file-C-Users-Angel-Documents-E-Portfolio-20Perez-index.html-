@@ -87,6 +87,10 @@ body {
     background: #fda085; /* Highlighted color for the button */
 }
 
+.timeline {
+        margin-left: 150px;
+        width: 70%;
+}
 .btn {
     text-decoration: none;
     color: #fff;
